@@ -13,7 +13,7 @@ export default function Products({ productData }) {
   return (
     <>
       <div>{loading && <Spinner/>}</div>
-      <div>{isSuccess && <ProductList products={products}/>}</div>
+      <div>{isSuccess && <ProductList inCart={false} products={products}/>}</div>
     </>
   );
 }

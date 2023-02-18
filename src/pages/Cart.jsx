@@ -8,6 +8,6 @@ export default function Cart() {
   const userCart = useSelector(selectUserCart);
 
   return (
-   <ProductList products={userCart}/>
+   <ProductList inCart={true} products={userCart}/>
   )
 }
