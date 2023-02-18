@@ -6,8 +6,7 @@ import ProductList from "./ProductList";
 
 export default function Products({ productData }) {
 
-  /*   const products = useSelector(selectAllProducts); */
-  const products = useSelector((state) => state.products.products);
+  const products = useSelector(selectAllProducts);
   const loading = useSelector((state) => state.products.loading);
   const isSuccess = useSelector((state) => state.products.isSuccess);
 
