@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import ProductItem from "./ProductItem";
-import { CategoryContext } from "./ProductContext";
+import { GenderContext } from "./ProductContext";
 
 export default function ProductList({ products }) {
-  const category = useContext(CategoryContext);
+  const gender = useContext(GenderContext);
 
   return (
     <div>
       {products.map((product, i) => {
-        if(product.category == category || category == null)
+        if(product.gender == gender || gender == null)
         return <ProductItem productItem={product} key={i}></ProductItem>;
       })}
     </div>

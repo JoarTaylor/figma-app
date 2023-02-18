@@ -9,8 +9,16 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Dashboard from "./pages/Dashboard";
+import { getProductsAsync } from "./store/features/products/products.slice";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProductsAsync());
+  }, []);
+
 
   return (
     <div className="flex flex-col items-center justify-center font-display ">
