@@ -9,10 +9,9 @@ import ProductList from "./ProductList";
 export default function Products({ productData }) {
   const dispatch = useDispatch();
   /*   const products = useSelector(selectAllProducts); */
+
   const products = useSelector((state) => state.products.products);
-
   const loading = useSelector((state) => state.products.loading);
-
   const isSuccess = useSelector((state) => state.products.isSuccess);
 
   useEffect(() => {
@@ -20,13 +19,13 @@ export default function Products({ productData }) {
   }, []);
 
   useEffect(() => {
-    console.log(products, "loading: ", loading, "isSuccess: ", isSuccess);
+    console.log(products, "loading: ", loading, "isSucces: ", isSuccess);
   }, [products]);
 
   return (
     <>
-      <div>{loading && <Spinner>sdf</Spinner>}</div>
-      <div>{isSuccess && <ProductList products={products}></ProductList>}</div>
+      <div>{loading && <Spinner/>}</div>
+      <div>{isSuccess && <ProductList products={products}/>}</div>
     </>
   );
 }

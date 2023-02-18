@@ -18,7 +18,6 @@ const initialState = {
   products: [],
   loading: false,
   isSuccess: false,
-  message: ''
 };
 
 const productsSlice = createSlice({
@@ -31,14 +30,13 @@ const productsSlice = createSlice({
       state.loading = false;
       state.isSuccess = true;
     }),
-    builder.addCase(getProductsAsync.pending, (state, action) => {
+    builder.addCase(getProductsAsync.pending, (state) => {
       state.loading = true;
       state.isSuccess = false;
     }),
-    builder.addCase(getProductsAsync.rejected, (state, {payload}) => {
+    builder.addCase(getProductsAsync.rejected, (state) => {
       state.loading = false;
       state.isSuccess = false;
-      state.message = payload;
     })
   },
 });

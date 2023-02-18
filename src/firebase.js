@@ -36,6 +36,6 @@ export const fetchProducts = async () => {
     const thisArray = products.docs.map(item => item.data())
     return thisArray
   } catch (error) {
-    throw new Error(error.code);
+    return;
   }
 };
