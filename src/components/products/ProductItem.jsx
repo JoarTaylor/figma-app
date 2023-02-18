@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/features/user/user.slice";
+import { addToCart, deleteFromCart } from "../../store/features/user/user.slice";
 
 export default function ProductItem({ productItem, inCart }) {
   const dispatch = useDispatch();
@@ -8,6 +8,10 @@ export default function ProductItem({ productItem, inCart }) {
     dispatch(addToCart(productItem));
     console.log(productItem);
   };
+
+  const handleDeleteFromCart = () => {
+    dispatch(deleteFromCart(productItem))
+  }
 
   if (!productItem.available) return;
   return (
@@ -26,7 +30,7 @@ export default function ProductItem({ productItem, inCart }) {
         </button>
       )}
       {inCart && (
-        <button className="rounded bg-red-600 p-2 text-white hover:bg-red-800 ">
+        <button onClick={handleDeleteFromCart} className="rounded bg-red-600 p-2 text-white hover:bg-red-800 ">
           Delete
         </button>
       )}

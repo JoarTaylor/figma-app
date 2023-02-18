@@ -11,9 +11,13 @@ const userSlice = createSlice({
     addToCart: (state, { payload }) => {
       state.cart.push(payload);
     },
+    deleteFromCart: (state, {payload}) => {
+        let index = state.cart.indexOf(payload);
+        state.cart.splice(index+1, 1)
+    }
   },
 });
 
-export const { addToCart } = userSlice.actions;
+export const { addToCart, deleteFromCart } = userSlice.actions;
 
 export default userSlice.reducer;
