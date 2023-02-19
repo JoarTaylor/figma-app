@@ -25,7 +25,8 @@ function App() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center font-display ">
+    <div className=" font-display w-full flex flex-col items-center justify-center">
+      <div className="w-4/5 flex flex-col items-center justify-center">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -40,6 +41,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      </div>
     </div>
   );
 }
