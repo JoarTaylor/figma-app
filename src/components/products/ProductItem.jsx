@@ -13,13 +13,13 @@ export default function ProductItem({ productItem, inCart }) {
     dispatch(deleteFromCart(productItem))
   }
 
-  if (!productItem.available) return;
+/*   if (!productItem.available) return; */
   return (
     <>
-      <div>{productItem.brand}</div>
+      <div>{productItem.title}</div>
       <div>{productItem.model}</div>
-      <div>{productItem.sale}% SALE</div>
       <div>£{productItem.price}</div>
+      <img className=" h-24" src={productItem.image} alt="" />
 
       {!inCart && (
         <button

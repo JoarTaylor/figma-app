@@ -12,7 +12,7 @@ import {
   query,
   getDocs,
   addDoc,
-  onSnapshot
+  onSnapshot,
 } from "firebase/firestore";
 
 // Your web app's Firebase configuration
@@ -30,12 +30,32 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-export const fetchProducts = async () => {
+/* export const fetchProducts = async () => {
   try {
     const products = await getDocs(collection(db, 'products'))
     const thisArray = products.docs.map(item => item.data())
     return thisArray
   } catch (error) {
     return;
+  }
+}; */
+
+export const fetchProducts = async () => {
+  try {
+    const docRef = doc(db, "Shop", "Products");
+    const snapshot = await getDoc(docRef);
+    const { products } = snapshot.data();
+    return products;
+  } catch (error) {
+    throw new Error(error.code);
+  }
+};
+
+export const addProductsToFirebase = async (products) => {
+  try {
+    const docRef = doc(db, "Shop", "Products");
+    await setDoc(docRef, { products });
+  } catch (error) {
+    throw new Error(error.code);
   }
 };

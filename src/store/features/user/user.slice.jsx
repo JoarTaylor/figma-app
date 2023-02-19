@@ -12,8 +12,8 @@ const userSlice = createSlice({
       state.cart.push(payload);
     },
     deleteFromCart: (state, {payload}) => {
-        let index = state.cart.indexOf(payload);
-        state.cart.splice(index+1, 1)
+        console.log(payload.id);
+        state.cart.splice(state.cart.findIndex(item => item.id == payload.id), 1)
     }
   },
 });

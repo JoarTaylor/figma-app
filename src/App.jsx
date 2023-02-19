@@ -11,13 +11,17 @@ import Cart from "./pages/Cart";
 import Dashboard from "./pages/Dashboard";
 import { getProductsAsync } from "./store/features/products/products.slice";
 import { useDispatch } from "react-redux";
+import { shopData } from "./assets/products";
+import { addProductsToFirebase } from "./firebase";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProductsAsync());
+    /* addProductsToFirebase(shopData) */
   }, []);
+
 
 
   return (

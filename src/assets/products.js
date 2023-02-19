@@ -8,9 +8,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
      rating: {
      rate: 3.9,
-     count: 120,
+     count: 120
+     },
      gender: 'men'
-     }
      },
      {
      id: 2,
@@ -21,9 +21,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
      rating: {
      rate: 4.1,
-     count: 259,
+     count: 259
+     },
      gender: 'men'
-     }
      },
      {
      id: 3,
@@ -34,9 +34,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
      rating: {
      rate: 4.7,
-     count: 500,
+     count: 500
+     },
      gender: 'men'
-     }
      },
      {
      id: 4,
@@ -47,9 +47,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
      rating: {
      rate: 2.1,
-     count: 430,
+     count: 430
+     },
      gender: 'men'
-     }
      },
      {
      id: 5,
@@ -60,9 +60,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
      rating: {
      rate: 4.6,
-     count: 400,
+     count: 400
+     },
      gender: 'men'
-     }
      },
      {
      id: 6,
@@ -85,9 +85,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
      rating: {
      rate: 3,
-     count: 400,
+     count: 400
+     },
      gender: 'women'
-     }
      },
      {
      id: 8,
@@ -98,9 +98,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
      rating: {
      rate: 1.9,
-     count: 100,
+     count: 100
+     },
      gender: 'women'
-     }
      },
      {
      id: 9,
@@ -183,9 +183,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
      rating: {
      rate: 2.6,
-     count: 235,
+     count: 235
+     },
      gender: 'women'
-     }
      },
      {
      id: 16,
@@ -196,9 +196,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
      rating: {
      rate: 2.9,
-     count: 340,
+     count: 340
+     },
      gender: 'women'
-     }
      },
      {
      id: 17,
@@ -209,9 +209,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
      rating: {
      rate: 3.8,
-     count: 679,
+     count: 679
+     },
      gender: 'women'
-     }
      },
      {
      id: 18,
@@ -222,9 +222,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
      rating: {
      rate: 4.7,
-     count: 130,
+     count: 130
+     },
      gender: 'women'
-     }
      },
      {
      id: 19,
@@ -235,9 +235,9 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
      rating: {
      rate: 4.5,
-     count: 146,
+     count: 146
+     },
      gender: 'women'
-     }
      },
      {
      id: 20,
@@ -248,12 +248,12 @@ export const shopData = [
      image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
      rating: {
      rate: 3.6,
-     count: 145,
+     count: 145
+     },
      gender: 'women'
-     }
      }, 
      {
-        id: 2,
+        id: 21,
         title: "Mens Casual Premium Slim Fit T-Shirts ",
         price: 22.3,
         description: "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
@@ -261,8 +261,8 @@ export const shopData = [
         image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
         rating: {
         rate: 4.1,
-        count: 259,
+        count: 259
+        },
         gender: 'men'
-        }
     }
  ]
