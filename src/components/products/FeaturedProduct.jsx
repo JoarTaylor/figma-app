@@ -17,28 +17,33 @@ export default function FeaturedProduct() {
     if (id == 22) setFigma(true);
   });
 
-  console.log(featuredProduct);
   if (!featuredProduct) return;
   return (
-    <div className="flex">
-      <div>
+    <div className="mt-[90px] flex">
+      <div className="mr-[125px]">
         {!figma && (
           <img
-            className="h-[445px] w-[445px] object-scale-down rounded-[15px] border-2"
+            className="h-[445px] w-[445px] rounded-[15px] border-2 object-scale-down"
             src={featuredProduct.image}
             alt=""
           />
         )}
         {figma && (
           <img
-            className="h-[445px] w-[445px] object-scale-down rounded-[15px]"
+            className="h-[445px] w-[445px] rounded-[15px] object-scale-down"
             src={mainpic}
             alt=""
           />
         )}
       </div>
-      <div>
-        <div className="weight-700 text-[#FF7E1B] font-bold">{featuredProduct.model}</div>
+      <div className="w-[445px]">
+        <div className="weight-700 font-bold tracking-[2px] text-[#FF7E1B] mb-[27px]">
+          {featuredProduct.model}
+        </div>
+        <div className="text-[#1D2026] text-[44px] leading-[48px] mb-[32px]">{featuredProduct.title}</div>
+        <div className="leading-[26px] text-[#69707D] mb-[28px]">{featuredProduct.description}</div>
+        <div className="text-[#1D2026] font-bold text-[28px] leading-[35px]">${featuredProduct.price}</div>
+        
       </div>
     </div>
   );

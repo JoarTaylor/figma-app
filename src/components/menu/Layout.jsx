@@ -17,7 +17,7 @@ export default function Layout() {
 
   return (
     <>
-      <nav className="mb-7 mt-7 flex w-4/6 justify-between border-b-2 ">
+      <nav className="flex  justify-between border-b-2 w-full">
         <Link to="/">
           <img className="" src={SneakerIcon} alt="" />
         </Link>
