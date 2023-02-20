@@ -38,7 +38,7 @@ export default function Layout() {
         </Link>
         <div className="">
           <Link to="/cart">
-            <div className=" relative  left-3 rounded-full bg-red-500 text-center font-extrabold text-white ">
+            <div className=" relative text-[10px] top-2 left-3 rounded-full bg-[#FF7E1B] text-center font-extrabold text-white ">
               {quantityIncart ? `${quantityIncart}` : ""}
             </div>
             <img className="" src={CartIcon} alt="" />

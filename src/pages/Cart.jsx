@@ -14,9 +14,8 @@ export default function Cart() {
   const handleCheckout = () => {};
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center mb-10">
       <ProductList inCart={true} products={userCart} />
-      <h4></h4>
       <div>Total amount: $ {totalCheckoutAmount}</div>
       <Button callback={handleCheckout}>Checkout</Button>
     </div>
