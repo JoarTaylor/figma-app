@@ -23,7 +23,7 @@ export default function FeaturedProduct() {
       <div className="mr-[125px]">
         {!figma && (
           <img
-            className="h-[445px] w-[445px] rounded-[15px] border-2 object-scale-down"
+            className="h-[445px] w-[445px] rounded-[15px] border-2 object-scale-down shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]"
             src={featuredProduct.image}
             alt=""
           />

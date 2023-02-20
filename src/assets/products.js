@@ -296,12 +296,13 @@ export const shopData = [
         title: "Fall Limited Edition Sneakers",
         price: 125.00,
         description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
-        image: 'link',
+        image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
         rating: {
         rate: 5.0,
         count: 100
         },
         gender: 'men',
-        model: 'SNEAKER COMPANY'
+        model: 'SNEAKER COMPANY',
+        category: "shoes"
     }
  ]

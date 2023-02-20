@@ -33,12 +33,14 @@ export default function ProductItem({ productItem, inCart }) {
   return (
     <>
       <div className="flex flex-col items-center justify-between">
-        <Link to={`/collections/${productItem.id}`}>
-          <img
-            className="h-40 w-96  object-scale-down"
-            src={productItem.image}
-            alt=""
-          />
+        <Link to={`/${productItem.category}/${productItem.id}`}>
+          <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-6 m-6">
+            <img
+              className="h-40 w-96  object-scale-down "
+              src={productItem.image}
+              alt=""
+            />
+          </div>
           <div className="text-center font-bold">{productItem.title}</div>
         </Link>
         <div className=" h-20 overflow-hidden text-xs">
