@@ -42,7 +42,8 @@ export const shopData = [
      count: 500
      },
      gender: 'men',
-     model: 'JACKET COMPANY'
+     model: 'JACKET COMPANY',
+     discount: '25'
      },
      {
      id: 4,
@@ -70,7 +71,8 @@ export const shopData = [
      count: 400
      },
      gender: 'men',
-     model: 'JEWELERY COMPANY'
+     model: 'JEWELERY COMPANY',
+     discount: '30'
      },
      {
      id: 6,
@@ -97,7 +99,8 @@ export const shopData = [
      count: 400
      },
      gender: 'women',
-     model: 'JEWELERY COMPANY'
+     model: 'JEWELERY COMPANY',
+     discount: '30'
      },
      {
      id: 8,
@@ -123,7 +126,8 @@ export const shopData = [
      rating: {
      rate: 3.3,
      count: 203,
-     model: 'DIGITAL COMPANY'
+     model: 'DIGITAL COMPANY',
+     discount: '30'
      }
      },
      {
@@ -162,7 +166,8 @@ export const shopData = [
      rating: {
      rate: 4.8,
      count: 400,
-     model: 'DIGITAL COMPANY'
+     model: 'DIGITAL COMPANY',
+     discount: '20'
      }
      },
      {
@@ -175,7 +180,8 @@ export const shopData = [
      rating: {
      rate: 2.9,
      count: 250,
-     model: 'DIGITAL COMPANY'
+     model: 'DIGITAL COMPANY',
+     discount: '15'
      }
      },
      {
@@ -203,7 +209,8 @@ export const shopData = [
      count: 235
      },
      gender: 'women',
-     model: 'JACKET COMPANY'
+     model: 'JACKET COMPANY',
+     discount: '15'
      },
      {
      id: 16,
@@ -231,7 +238,8 @@ export const shopData = [
      count: 679
      },
      gender: 'women',
-     model: 'JACKET COMPANY'
+     model: 'JACKET COMPANY',
+     discount: '20'
      },
      {
      id: 18,
@@ -245,7 +253,8 @@ export const shopData = [
      count: 130
      },
      gender: 'women',
-     model: 'T-SHIRT COMPANY'
+     model: 'T-SHIRT COMPANY',
+     discount: '40'
      },
      {
      id: 19,
@@ -273,8 +282,8 @@ export const shopData = [
      count: 145
      },
      gender: 'women',
-     model: 'T-SHIRT COMPANY'
-     
+     model: 'T-SHIRT COMPANY',
+     discount: '20'
      }, 
      {
         id: 21,
@@ -288,7 +297,7 @@ export const shopData = [
         count: 259
         },
         gender: 'men',
-        model: 'T-SHIRT COMPANY'
+        model: 'T-SHIRT COMPANY',
     }, 
     
      {
@@ -303,6 +312,7 @@ export const shopData = [
         },
         gender: 'men',
         model: 'SNEAKER COMPANY',
-        category: "shoes"
+        category: "shoes",
+        discount: '50'
     }
  ]

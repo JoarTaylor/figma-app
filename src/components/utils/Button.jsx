@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Button({callback, children}) {
+export default function Button({callback, children, disabled}) {
   return (
     <button
           onClick={callback}

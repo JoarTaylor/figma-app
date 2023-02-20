@@ -34,7 +34,7 @@ export default function ProductItem({ productItem, inCart }) {
     <>
       <div className="flex flex-col items-center justify-between">
         <Link to={`/${productItem.category}/${productItem.id}`}>
-          <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-6 m-6">
+          <div className="m-6 p-6 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
             <img
               className="h-40 w-96  object-scale-down "
               src={productItem.image}
@@ -47,12 +47,36 @@ export default function ProductItem({ productItem, inCart }) {
           {productItem.description}
         </div>
 
-        {!inCart && (
+        
           <div className="mt-auto flex flex-col items-center">
-            <div>${Math.round(productItem.price)}</div>{" "}
-            <Button callback={handleAddToCart}>Add</Button>
+            <div className="flex">
+              <div className="p-1 text-lg font-bold text-[#1D2026]">
+                {productItem.discount &&
+                  `${
+                    (Math.round(productItem.price) *
+                      (100 - productItem.discount)) /
+                    100
+                  } $`}
+              </div>
+              <div className="font-bold text-red-700">
+                {productItem.discount && `${productItem.discount}%`}
+              </div>
+            </div>
+            <div className={
+                  productItem.discount ? "text-gray-400" : "text-[#1D2026]"
+                }>
+              <div
+                className={
+                  productItem.discount ? "line-through decoration-gray-500" : ""
+                }
+              >
+                {productItem.price}
+              </div>
+            </div>
+            {!inCart &&
+            <Button callback={handleAddToCart}>Add</Button>}
           </div>
-        )}
+        
 
         {inCart && (
           <>
