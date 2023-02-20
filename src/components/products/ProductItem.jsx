@@ -7,6 +7,7 @@ import {
   incrementQuantity,
 } from "../../store/features/user/user.slice";
 import Button from "../utils/button";
+import { Link } from "react-router-dom";
 
 export default function ProductItem({ productItem, inCart }) {
   const dispatch = useDispatch();
@@ -32,26 +33,28 @@ export default function ProductItem({ productItem, inCart }) {
   return (
     <>
       <div className="flex flex-col items-center justify-between">
-        <img
-          className="h-40 w-96  object-scale-down"
-          src={productItem.image}
-          alt=""
-        />
-        <div className="text-center font-bold">{productItem.title}</div>
+        <Link to={`/collections/${productItem.id}`}>
+          <img
+            className="h-40 w-96  object-scale-down"
+            src={productItem.image}
+            alt=""
+          />
+          <div className="text-center font-bold">{productItem.title}</div>
+        </Link>
         <div className=" h-20 overflow-hidden text-xs">
           {productItem.description}
         </div>
 
         {!inCart && (
           <div className="mt-auto flex flex-col items-center">
-            <div>£{Math.round(productItem.price)}</div>{" "}
+            <div>${Math.round(productItem.price)}</div>{" "}
             <Button callback={handleAddToCart}>Add</Button>
           </div>
         )}
 
         {inCart && (
           <>
-            <div>£{Math.round(productItem.price * productItem.quantity)}</div>
+            <div>${Math.round(productItem.price * productItem.quantity)}</div>
             <div className="flex w-full flex-col">
               <div className="flex items-center justify-between">
                 <div
@@ -62,7 +65,7 @@ export default function ProductItem({ productItem, inCart }) {
                 </div>
                 <div>{productItem.quantity}</div>
                 <div
-                  className="place-items-center text-3xl h-10 w-10 rounded-lg bg-blue-400 text-center text-white"
+                  className="h-10 w-10 place-items-center rounded-lg bg-blue-400 text-center text-3xl text-white"
                   onClick={handleIncrementQuantity}
                 >
                   +

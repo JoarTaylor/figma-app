@@ -17,7 +17,7 @@ export default function Cart() {
     <div className="flex flex-col items-center justify-center">
       <ProductList inCart={true} products={userCart} />
       <h4></h4>
-      <div>Total amount: £ {totalCheckoutAmount}</div>
+      <div>Total amount: $ {totalCheckoutAmount}</div>
       <Button callback={handleCheckout}>Checkout</Button>
     </div>
   );

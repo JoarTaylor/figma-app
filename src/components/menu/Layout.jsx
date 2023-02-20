@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 export default function Layout() {
   const cart = useSelector(selectUserCart);
-  console.log(cart);
+
   const quantityIncart = cart.reduce((acc, cur) => {
     return acc + cur.quantity;
   }, 0);
