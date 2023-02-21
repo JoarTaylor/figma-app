@@ -44,17 +44,17 @@ export default function ProductItem({ productItem, inCart }) {
           </div>
         </Link>
 
-        <div className="mt-auto flex flex-col">
-          <div className="p-1 font-bold text-red-700 ">
+        <div className=" flex flex-col">
+          <div className=" font-bold text-red-700 ">
             {discount && `${(Math.round(price) * (100 - discount)) / 100} $`}
           </div>
-          <div className={discount ? "flex text-gray-400" : "text-[#1D2026]"}>
+          <div className={discount ? "flex text-gray-400 text-xs" : "text-[#1D2026]"}>
             {discount ? "Originally: " : ""}
             <div className={discount ? "line-through decoration-gray-500" : ""}>
               {price} $
             </div>
             <div className="flex items-center text-xs font-bold text-[#FF7E1B]">
-              -{discount && `${discount}%`}
+              {discount && `-${discount}%`}
             </div>
           </div>
         </div>
