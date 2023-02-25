@@ -15,6 +15,8 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 
+import {getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup} from 'firebase/auth'
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC7h0qXV2EORh7d_EAgfpDCPFcXaajjy_A",
@@ -25,10 +27,15 @@ const firebaseConfig = {
   appId: "1:50964194230:web:ff9a19c77123ae1e101717",
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
+
+const auth = getAuth(app);
+
+const provider = new GoogleAuthProvider();
 
 export const fetchProducts = async () => {
   try {
@@ -49,3 +56,20 @@ export const addProductsToFirebase = async (products) => {
     throw new Error(error.code);
   }
 };
+
+
+
+ export const signInWithGoogle = async () => {
+    let email;
+    await signInWithPopup(auth, provider).then((result) => {
+      console.log(result.user.email)
+       email = result.user.email
+    }) 
+    return email;
+ }
+
+ export const getUserAuthId = async handler => {
+  onAuthStateChanged(auth, (user) => {
+    handler(user)
+  })
+ }

@@ -8,14 +8,10 @@ import {
 } from "../../store/features/user/user.slice";
 import Button from "../utils/button";
 import { Link } from "react-router-dom";
+import regularHeart from '../../assets/regularHeart.svg'
 
 export default function ProductItem({ productItem, inCart }) {
   const dispatch = useDispatch();
-  const cart = useSelector(selectUserCart);
-
-  const handleAddToCart = () => {
-    dispatch(addToCart(productItem));
-  };
 
   const handleDeleteFromCart = () => {
     dispatch(deleteFromCart(productItem));
@@ -23,7 +19,6 @@ export default function ProductItem({ productItem, inCart }) {
 
   const handleIncrementQuantity = () => {
     dispatch(incrementQuantity(productItem));
-    console.log(cart);
   };
 
   const handleDecrementQuantity = () => {
@@ -36,7 +31,8 @@ export default function ProductItem({ productItem, inCart }) {
     <>
       <div className="flex flex-col  justify-between">
         <Link className="w-full" to={`/${category}/${id}`}>
-          <div className="flex justify-center p-4 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+          <div className="flex flex-col justify-center p-4 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
+            <img className=" h-8 self-end object-scale-down" src={regularHeart}></img>
             <img className=" h-96 object-scale-down" src={image} alt="" />
           </div>
           <div className=" mt-2 mr-8 overflow-hidden text-ellipsis whitespace-nowrap ">

@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchProducts } from "../../../firebase";
 
 export const getProductsAsync = createAsyncThunk(
-  "getQuestionsAsync",
+  "getProductsAsync",
   async () => {
     try {
       const products = await fetchProducts();
@@ -18,7 +18,7 @@ const initialState = {
   products: [],
   loading: false,
   isSuccess: false,
-  featuredProduct: {}
+  featuredProduct: {},
 };
 
 const productsSlice = createSlice({
@@ -28,7 +28,7 @@ const productsSlice = createSlice({
     setFeaturedProduct: (state, {payload}) => {
       const featured = state.products.find(product => product.id == payload)
       state.featuredProduct = featured
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getProductsAsync.fulfilled, (state, {payload}) => {

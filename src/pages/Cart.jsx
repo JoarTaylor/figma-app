@@ -11,7 +11,9 @@ export default function Cart() {
     return acc + Math.round(val.quantity * val.price);
   }, 0);
 
-  const handleCheckout = () => {};
+  const handleCheckout = () => {
+    
+  };
 
   return (
     <div className="flex flex-col items-center justify-center mb-10">

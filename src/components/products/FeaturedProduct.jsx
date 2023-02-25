@@ -8,12 +8,9 @@ import { setFeaturedProduct } from "../../store/features/products/products.slice
 export default function FeaturedProduct() {
   const products = useSelector(selectAllProducts);
   const { id } = useParams();
-  /* const [featuredProduct, setFeaturedProduct] = useState(null); */
   const [figma, setFigma] = useState(false);
   const featuredProduct = useSelector(selectFeaturedProduct)
   const dispatch = useDispatch()
-
-  console.log(id);
 
   useEffect(() => {
     if (id == 22) {

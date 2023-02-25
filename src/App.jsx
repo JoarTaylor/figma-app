@@ -7,6 +7,7 @@ import { shopData } from "./assets/products";
 import { addProductsToFirebase } from "./firebase";
 import { lazy, Suspense } from "react";
 import Spinner from "./components/utils/Spinner";
+import { getUserAuthIdAsync } from "./store/features/user/user.slice";
 
 const Collections = lazy(() => import("./pages/Collections"));
 const Men = lazy(() => import("./pages/Men"));
@@ -16,6 +17,7 @@ const Home = lazy(() => import("./pages/Home"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Cart = lazy(() => import("./pages/Cart"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const SignIn= lazy(() => import("./pages/SignIn"));
 const FeaturedProduct = lazy(() =>
   import("./components/products/FeaturedProduct")
 );
@@ -25,6 +27,7 @@ function App() {
   useEffect(() => {
     dispatch(getProductsAsync());
     addProductsToFirebase(shopData);
+    dispatch(getUserAuthIdAsync())
   }, []);
 
   return (
@@ -43,6 +46,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/:category/:id" element={<FeaturedProduct />} />
+                <Route path="signin" element={<SignIn />} />
               </Route>
             </Routes>
           </Suspense>
