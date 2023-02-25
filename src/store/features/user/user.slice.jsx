@@ -9,7 +9,8 @@ const initialState = {
   userEmail: {},
   isSignedIn: false,
   userId: "",
-  userName: ''
+  userName: '',
+  profileImageSrc: ''
 };
 
 export const signInWithGoogleAsync = createAsyncThunk(
@@ -44,6 +45,7 @@ export const getUserAuthIdAsync = () => async (dispatch) => {
       dispatch(setUserName(user.displayName))
       dispatch(setSignedIn(true));
       dispatch(setUserId(user.uid));
+      dispatch(setProfileImageSrc(user.photoURL))
     } else {
       dispatch(setSignedIn(false));
     }
@@ -55,6 +57,9 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    setProfileImageSrc: (state, {payload}) => {
+      state.profileImageSrc = payload
+    },
     setUserName: (state, {payload}) => {
       state.userName = payload
     },
@@ -123,7 +128,8 @@ export const {
   setSavedProducts,
   setUserId,
   removeProductFromSaved,
-  setUserName
+  setUserName,
+  setProfileImageSrc
 } = userSlice.actions;
 
 export default userSlice.reducer;
