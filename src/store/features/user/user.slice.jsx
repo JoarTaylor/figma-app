@@ -1,5 +1,7 @@
+import { async } from "@firebase/util";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getUserAuthId, signInWithGoogle } from "../../../firebase";
+import { PAUSE } from "redux-persist";
+import { getUserAuthId, signInWithGoogle, signOutFromGoogle } from "../../../firebase";
 
 const initialState = {
   cart: [],
@@ -18,9 +20,22 @@ export const signInWithGoogleAsync = createAsyncThunk(
       return userEmail;
     } catch (error) {
       console.log(error);
+      return error
     }
   }
 );
+
+export const signOutFromGoogleAsync = createAsyncThunk(
+  'signOutFromGoogle',
+  async () => {
+    try {
+      const signedOut = await signOutFromGoogle();
+      return signedOut
+    } catch (error) {
+      return error
+    }
+  }
+) 
 
 export const getUserAuthIdAsync = () => async (dispatch) => {
   const listenForIfUserIsSignedIn = async (user) => {
@@ -93,6 +108,9 @@ const userSlice = createSlice({
     builder.addCase(signInWithGoogleAsync.fulfilled, (state, { payload }) => {
       state.userEmail = payload;
     });
+    builder.addCase(signOutFromGoogleAsync.fulfilled, (state, {payload}) => {
+      payload ? state.isSignedIn = false : state.isSignedIn = true;
+    })
   },
 });
 

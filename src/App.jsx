@@ -16,8 +16,7 @@ const About = lazy(() => import("./pages/About"));
 const Home = lazy(() => import("./pages/Home"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Cart = lazy(() => import("./pages/Cart"));
-const Dashboard = lazy(() => import("./pages/Dashboard"));
-const SignIn= lazy(() => import("./pages/SignIn"));
+const Dashboard = lazy(() => import("./components/Authentication/Dashboard"));
 const FeaturedProduct = lazy(() =>
   import("./components/products/FeaturedProduct")
 );
@@ -27,7 +26,7 @@ function App() {
   useEffect(() => {
     dispatch(getProductsAsync());
     addProductsToFirebase(shopData);
-    dispatch(getUserAuthIdAsync())
+    dispatch(getUserAuthIdAsync());
   }, []);
 
   return (
@@ -46,7 +45,6 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/:category/:id" element={<FeaturedProduct />} />
-                <Route path="signin" element={<SignIn />} />
               </Route>
             </Routes>
           </Suspense>

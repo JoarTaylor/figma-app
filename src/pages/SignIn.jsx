@@ -13,6 +13,6 @@ export default function SignIn() {
 
 
   return (
-    <Button callback={handleSignIn}>Sign in with Google</Button>
+    <Button callback={handleSignIn}>Sign in</Button>
   )
 }

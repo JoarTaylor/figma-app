@@ -15,7 +15,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 
-import {getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup} from 'firebase/auth'
+import {getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut} from 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -72,4 +72,15 @@ export const addProductsToFirebase = async (products) => {
   onAuthStateChanged(auth, (user) => {
     handler(user)
   })
+ }
+
+ export const signOutFromGoogle = async () => {
+  let signedOut = Boolean;
+    await signOut(auth).then(() => {
+      signedOut = true;
+    }).catch((error) => {
+      console.log(error)
+      signedOut = false;
+    })
+    return signedOut;
  }
