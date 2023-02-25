@@ -18,12 +18,18 @@ const initialState = {
   products: [],
   loading: false,
   isSuccess: false,
+  featuredProduct: {}
 };
 
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setFeaturedProduct: (state, {payload}) => {
+      const featured = state.products.find(product => product.id == payload)
+      state.featuredProduct = featured
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(getProductsAsync.fulfilled, (state, {payload}) => {
       state.products = payload;
@@ -46,6 +52,7 @@ export const {
   getProductsStart,
   getProductsSuccess,
   getProductsFailed,
+  setFeaturedProduct
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

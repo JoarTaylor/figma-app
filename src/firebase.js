@@ -30,16 +30,6 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-/* export const fetchProducts = async () => {
-  try {
-    const products = await getDocs(collection(db, 'products'))
-    const thisArray = products.docs.map(item => item.data())
-    return thisArray
-  } catch (error) {
-    return;
-  }
-}; */
-
 export const fetchProducts = async () => {
   try {
     const docRef = doc(db, "Shop", "Products");

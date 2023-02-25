@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { selectAllProducts } from "../../store/features/products/products.selector";
+import { selectAllProducts, selectFeaturedProduct } from "../../store/features/products/products.selector";
 import mainpic from "../../assets/mainpic.svg";
+import { setFeaturedProduct } from "../../store/features/products/products.slice";
 
 export default function FeaturedProduct() {
   const products = useSelector(selectAllProducts);
   const { id } = useParams();
-  const [featuredProduct, setFeaturedProduct] = useState(null);
+  /* const [featuredProduct, setFeaturedProduct] = useState(null); */
   const [figma, setFigma] = useState(false);
+  const featuredProduct = useSelector(selectFeaturedProduct)
+  const dispatch = useDispatch()
 
   console.log(id);
 
   useEffect(() => {
-    setFeaturedProduct(products.find((item) => item.id == id));
-    if (id == 22) setFigma(true);
+    if (id == 22) {
+      setFigma(true)
+     } ;
+    dispatch(setFeaturedProduct(id))
+   
   });
 
   if (!featuredProduct) return;
