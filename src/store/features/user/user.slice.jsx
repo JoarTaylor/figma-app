@@ -41,7 +41,6 @@ export const signOutFromGoogleAsync = createAsyncThunk(
 export const getUserAuthIdAsync = () => async (dispatch) => {
   const listenForIfUserIsSignedIn = async (user) => {
     if (user) {
-      console.log(user)
       dispatch(setUserName(user.displayName))
       dispatch(setSignedIn(true));
       dispatch(setUserId(user.uid));
@@ -71,14 +70,15 @@ const userSlice = createSlice({
     },
     setSavedProducts: (state, { payload }) => {
       const alreadySaved = state.savedProducts.some(
-        (product) => product.id == payload
+        (id) => id == payload
       );
-      if (!alreadySaved) state.push.payload;
+      if (!alreadySaved) state.savedProducts.push(payload);
     },
     removeProductFromSaved: (state, { payload }) => {
       const indexOfProductToRemove = state.savedProducts.findIndex(
-        (product) => product.id == payload
+        (id) => id == payload
       );
+      console.log('ge')
       state.savedProducts.splice(indexOfProductToRemove, 1);
     },
     addToCart: (state, { payload }) => {

@@ -13,3 +13,5 @@ export const selectIsSignedIn = createSelector([userSlice], (userSlice) => userS
 export const selectUserName = createSelector([userSlice], (userSlice) => userSlice.userName)
 
 export const selectProfileImageSrc = createSelector([userSlice], (userSlice) => userSlice.profileImageSrc)
+
+export const selectSavedProducts = createSelector([userSlice], (userSlice) => userSlice.savedProducts)

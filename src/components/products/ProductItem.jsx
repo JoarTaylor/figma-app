@@ -1,17 +1,32 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectUserCart } from "../../store/features/user/user.selector";
+import { selectIsSignedIn, selectSavedProducts, selectUserCart } from "../../store/features/user/user.selector";
 import {
-  addToCart,
   decrementQuantity,
   deleteFromCart,
   incrementQuantity,
+  removeProductFromSaved,
+  setSavedProducts,
 } from "../../store/features/user/user.slice";
 import Button from "../utils/button";
 import { Link } from "react-router-dom";
 import regularHeart from '../../assets/regularHeart.svg'
+import filledHeart from '../../assets/filledHeart.svg'
+import SignIn from "../../pages/SignIn";
+import { useEffect, useState } from "react";
+import { selectAllProducts } from "../../store/features/products/products.selector";
 
 export default function ProductItem({ productItem, inCart }) {
   const dispatch = useDispatch();
+  const isSignedIn = useSelector(selectIsSignedIn);
+  const { category, id, price, quantity, title, image, discount } = productItem;
+  const savedProducts = useSelector(selectSavedProducts)
+  const [savedProduct, setSavedProduct] = useState(false)
+
+  useEffect(() => {
+    const alreadySaved = savedProducts.some(id => id == productItem.id);
+    console.log(alreadySaved)
+    setSavedProduct(alreadySaved)
+  }, [savedProducts])
 
   const handleDeleteFromCart = () => {
     dispatch(deleteFromCart(productItem));
@@ -25,14 +40,17 @@ export default function ProductItem({ productItem, inCart }) {
     dispatch(decrementQuantity(productItem));
   };
 
-  const { category, id, price, quantity, title, image, discount } = productItem;
+  const saveProductToProfile = (e) => {
+    savedProduct ? dispatch(removeProductFromSaved(productItem.id)) :
+    dispatch(setSavedProducts(productItem.id))
+  }
 
   return (
     <>
       <div className="flex flex-col  justify-between">
         <Link className="w-full" to={`/${category}/${id}`}>
           <div className="flex flex-col justify-center p-4 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
-            <img className=" h-8 self-end object-scale-down" src={regularHeart}></img>
+            <img onClick={(e) => {e.preventDefault(); saveProductToProfile()}} className=" h-8 self-end object-scale-down" src={savedProduct? filledHeart: regularHeart}></img>
             <img className=" h-96 object-scale-down" src={image} alt="" />
           </div>
           <div className=" mt-2 mr-8 overflow-hidden text-ellipsis whitespace-nowrap ">

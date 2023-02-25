@@ -15,7 +15,6 @@ export default function Dashboard() {
   const userEmail = useSelector(selectUserEmail);
   const userId = useSelector(selectUserId);
   const userName = useSelector(selectUserName);
-  const isSignedIn = useSelector(selectIsSignedIn);
   const navigate = useNavigate();
 
   const handleSignOut = () => {
@@ -25,6 +24,8 @@ export default function Dashboard() {
 
   return (
     <>
+      <h1>{userName}</h1>
+      <h2>{userEmail}</h2>
       <Button callback={handleSignOut}>Sign Out</Button>
     </>
   );
