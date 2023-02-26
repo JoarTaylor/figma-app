@@ -5,10 +5,11 @@ import {
   deleteFromCart,
   incrementQuantity,
   removeProductFromSaved,
+  saveUserAsync,
   setSavedProducts,
 } from "../../store/features/user/user.slice";
 import Button from "../utils/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import regularHeart from '../../assets/regularHeart.svg'
 import filledHeart from '../../assets/filledHeart.svg'
 import SignIn from "../../pages/SignIn";
@@ -21,11 +22,10 @@ export default function ProductItem({ productItem, inCart }) {
   const { category, id, price, quantity, title, image, discount } = productItem;
   const savedProducts = useSelector(selectSavedProducts)
   const [savedProduct, setSavedProduct] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
-    console.log(savedProducts)
     const alreadySaved = savedProducts.some(id => id == productItem.id);
-    console.log(alreadySaved)
     setSavedProduct(alreadySaved)
   }, [savedProducts])
 
@@ -42,8 +42,12 @@ export default function ProductItem({ productItem, inCart }) {
   };
 
   const saveProductToProfile = (e) => {
- 
-    dispatch(setSavedProducts(productItem.id))
+   if(isSignedIn) {
+    dispatch(setSavedProducts(productItem.id));
+    dispatch(saveUserAsync())
+   } else {
+    navigate('/signin')
+   } 
   }
 
   return (
@@ -51,7 +55,7 @@ export default function ProductItem({ productItem, inCart }) {
       <div className="flex flex-col  justify-between">
         <Link className="w-full" to={`/${category}/${id}`}>
           <div className="flex flex-col justify-center p-4 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
-            <img onClick={(e) => {e.preventDefault(); saveProductToProfile()}} className=" h-8 self-end object-scale-down" src={savedProduct? filledHeart: regularHeart}></img>
+            <img onClick={(e) => {e.preventDefault(); saveProductToProfile()}} className=" h-8 self-end object-scale-down" src={savedProduct && isSignedIn? filledHeart: regularHeart}></img>
             <img className=" h-96 object-scale-down" src={image} alt="" />
           </div>
           <div className=" mt-2 mr-8 overflow-hidden text-ellipsis whitespace-nowrap ">

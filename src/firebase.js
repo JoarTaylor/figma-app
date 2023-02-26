@@ -57,6 +57,15 @@ export const addProductsToFirebase = async (products) => {
   }
 };
 
+export const addUserToFirebase = async (collection, docName, data) => {
+    try {
+      const docRef = doc(db, collection, docName);
+      await setDoc(docRef, data)
+    } catch (error) {
+      throw new Error(error.code);
+    }
+}
+
 
 
  export const signInWithGoogle = async () => {

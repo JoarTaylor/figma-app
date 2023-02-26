@@ -1,7 +1,7 @@
 import { async } from "@firebase/util";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { PAUSE } from "redux-persist";
-import { getUserAuthId, signInWithGoogle, signOutFromGoogle } from "../../../firebase";
+import { addUserToFirebase, getUserAuthId, signInWithGoogle, signOutFromGoogle } from "../../../firebase";
 
 const initialState = {
   cart: [],
@@ -12,6 +12,19 @@ const initialState = {
   userName: '',
   profileImageSrc: ''
 };
+
+export const saveUserAsync = () => async (_, getState) => {
+  const state = getState()
+  const {savedProducts, userId} = state.user;
+  const userData = {
+    savedProducts
+  }
+  try {
+    await addUserToFirebase('users', userId, userData )
+  } catch (error) {
+    console.log(error)
+  }
+} 
 
 export const signInWithGoogleAsync = createAsyncThunk(
   "signInWithGoogleAsync",
