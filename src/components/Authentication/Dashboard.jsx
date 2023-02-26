@@ -16,12 +16,14 @@ export default function Dashboard() {
   const userId = useSelector(selectUserId);
   const userName = useSelector(selectUserName);
   const navigate = useNavigate();
+  const isSignedIn = useSelector(selectIsSignedIn)
 
   const handleSignOut = () => {
     dispatch(signOutFromGoogleAsync());
     navigate("/");
   };
 
+  if(!isSignedIn) return
   return (
     <>
       <h1>{userName}</h1>

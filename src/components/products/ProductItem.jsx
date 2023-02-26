@@ -23,6 +23,7 @@ export default function ProductItem({ productItem, inCart }) {
   const [savedProduct, setSavedProduct] = useState(false)
 
   useEffect(() => {
+    console.log(savedProducts)
     const alreadySaved = savedProducts.some(id => id == productItem.id);
     console.log(alreadySaved)
     setSavedProduct(alreadySaved)
@@ -41,7 +42,7 @@ export default function ProductItem({ productItem, inCart }) {
   };
 
   const saveProductToProfile = (e) => {
-    savedProduct ? dispatch(removeProductFromSaved(productItem.id)) :
+ 
     dispatch(setSavedProducts(productItem.id))
   }
 

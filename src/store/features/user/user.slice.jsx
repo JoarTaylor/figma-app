@@ -72,14 +72,12 @@ const userSlice = createSlice({
       const alreadySaved = state.savedProducts.some(
         (id) => id == payload
       );
-      if (!alreadySaved) state.savedProducts.push(payload);
-    },
-    removeProductFromSaved: (state, { payload }) => {
-      const indexOfProductToRemove = state.savedProducts.findIndex(
-        (id) => id == payload
-      );
-      console.log('ge')
-      state.savedProducts.splice(indexOfProductToRemove, 1);
+      if (!alreadySaved) {state.savedProducts.push(payload)} else {
+        const indexOfProductToRemove = state.savedProducts.findIndex(
+          (id) => id == payload
+        );
+        state.savedProducts.splice(indexOfProductToRemove, 1);
+      };
     },
     addToCart: (state, { payload }) => {
       const itemInCart = state.cart.find((item) => item.id === payload.id);
