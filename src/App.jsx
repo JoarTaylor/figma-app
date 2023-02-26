@@ -7,7 +7,7 @@ import { shopData } from "./assets/products";
 import { addProductsToFirebase } from "./firebase";
 import { lazy, Suspense } from "react";
 import Spinner from "./components/utils/Spinner";
-import { getUserAuthIdAsync } from "./store/features/user/user.slice";
+import { getUserAsync, getUserAuthIdAsync } from "./store/features/user/user.slice";
 
 const Collections = lazy(() => import("./pages/Collections"));
 const Men = lazy(() => import("./pages/Men"));
@@ -28,6 +28,7 @@ function App() {
     dispatch(getProductsAsync());
     addProductsToFirebase(shopData);
     dispatch(getUserAuthIdAsync())
+    dispatch(getUserAsync())
   }, []);
 
   return (

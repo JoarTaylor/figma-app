@@ -66,6 +66,17 @@ export const addUserToFirebase = async (collection, docName, data) => {
     }
 }
 
+export const getUserFromFireBase = async (collection, docName) => {
+  try {
+    const docRef = doc(collection, docName);
+    const snapshot = await getDoc(docRef);
+    const user = snapshot.data()
+    return user
+  } catch (error) {
+    throw new Error(error.code);
+  }
+}
+
 
 
  export const signInWithGoogle = async () => {

@@ -1,7 +1,7 @@
 import { async } from "@firebase/util";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { PAUSE } from "redux-persist";
-import { addUserToFirebase, getUserAuthId, signInWithGoogle, signOutFromGoogle } from "../../../firebase";
+import { addUserToFirebase, getUserAuthId, getUserFromFireBase, signInWithGoogle, signOutFromGoogle } from "../../../firebase";
 
 const initialState = {
   cart: [],
@@ -13,14 +13,26 @@ const initialState = {
   profileImageSrc: ''
 };
 
+export const getUserAsync = () => async (dispatch, getState) => {
+  const state = getState()
+  const { userId } = state.user;
+  try {
+   const user = await getUserFromFireBase('users', userId);
+   dispatch(setCurrentUserFromFireBase(user))
+  } catch (error) {
+    throw new Error(error.code);
+  }
+}
+
 export const saveUserAsync = () => async (_, getState) => {
   const state = getState()
   const {savedProducts, userId} = state.user;
   const userData = {
-    savedProducts
+    'savedProducts': savedProducts
   }
   try {
-    await addUserToFirebase('users', userId, userData )
+    const user = addUserToFirebase('users', userId, userData)
+    return user
   } catch (error) {
     console.log(error)
   }
@@ -69,6 +81,10 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    setCurrentUserFromFireBase: (state, {payload}) => {
+      const { savedProducts } = payload;
+      state.savedProducts = savedProducts
+    },
     setProfileImageSrc: (state, {payload}) => {
       state.profileImageSrc = payload
     },
@@ -140,7 +156,8 @@ export const {
   setUserId,
   removeProductFromSaved,
   setUserName,
-  setProfileImageSrc
+  setProfileImageSrc,
+  setCurrentUserFromFireBase
 } = userSlice.actions;
 
 export default userSlice.reducer;
