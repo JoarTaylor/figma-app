@@ -55,10 +55,10 @@ export default function ProductItem({ productItem, inCart }) {
       <div className="flex flex-col  justify-between">
         <Link className="w-full" to={`/${category}/${id}`}>
           <div className="flex flex-col justify-center p-4 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
-            <img onClick={(e) => {e.preventDefault(); saveProductToProfile()}} className=" h-8 self-end object-scale-down" src={savedProduct && isSignedIn? filledHeart: regularHeart}></img>
-            <img className=" h-96 object-scale-down" src={image} alt="" />
+            <img onClick={(e) => {e.preventDefault(); saveProductToProfile()}} className=" h-6 sm:h8 self-end object-scale-down" src={savedProduct && isSignedIn? filledHeart: regularHeart}></img>
+            <img className=" h-24 object-scale-down" src={image} alt="" />
           </div>
-          <div className=" mt-2 mr-8 overflow-hidden text-ellipsis whitespace-nowrap ">
+          <div className=" sm:mt-2 sm:mr-8 overflow-hidden text-ellipsis whitespace-nowrap ">
             {title}
           </div>
         </Link>

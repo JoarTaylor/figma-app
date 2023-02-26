@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className=" flex w-full flex-col items-center justify-center font-display">
-      <div className="flex w-[1110px] flex-col items-center justify-center">
+      <div className="flex sm:w-[1110px] flex-col items-center justify-center">
         <BrowserRouter>
           <Suspense fallback={Spinner}>
             <Routes>
