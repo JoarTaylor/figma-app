@@ -70,6 +70,7 @@ export const getUserAuthIdAsync = () => async (dispatch) => {
       dispatch(setSignedIn(true));
       dispatch(setUserId(user.uid));
       dispatch(setProfileImageSrc(user.photoURL))
+      console.log(user)
     } else {
       dispatch(setSignedIn(false));
     }

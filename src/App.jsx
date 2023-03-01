@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Layout from "./components/menu/Layout";
 import { getProductsAsync } from "./store/features/products/products.slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { shopData } from "./assets/products";
 import { addProductsToFirebase } from "./firebase";
 import { lazy, Suspense } from "react";
 import Spinner from "./components/utils/Spinner";
 import { getUserAsync, getUserAuthIdAsync } from "./store/features/user/user.slice";
+import { selectIsSignedIn } from "./store/features/user/user.selector";
 
 const Collections = lazy(() => import("./pages/Collections"));
 const Men = lazy(() => import("./pages/Men"));
@@ -24,11 +25,12 @@ const FeaturedProduct = lazy(() =>
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getProductsAsync());
     addProductsToFirebase(shopData);
-    dispatch(getUserAuthIdAsync())
-    dispatch(getUserAsync())
+ /*    dispatch(getUserAuthIdAsync())
+    dispatch(getUserAsync()) */
   }, []);
 
   return (
