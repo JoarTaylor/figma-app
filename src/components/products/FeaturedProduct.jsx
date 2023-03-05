@@ -42,7 +42,7 @@ export default function FeaturedProduct() {
     } else {
       setQuantity(0)
     }
-  },[products]);
+  },[products, cart]);
 
   const handleIncrementQuantity = () => {
     dispatch(incrementQuantity(featuredProduct));

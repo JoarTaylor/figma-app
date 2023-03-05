@@ -49,9 +49,11 @@ export default function Layout() {
         <div className="flex items-center">
           <div className=" sm:mr-[22.18px]">
             <Link className="relative flex items-center" to="/cart">
+              { quantityIncart > 0 &&
               <div className=" absolute left-[50%] translate-y-[-90%] translate-x-[-10%] rounded-full bg-[#FF7E1B] text-center text-[10px] py-0.5 px-3 font-extrabold text-white ">
-                {quantityIncart ? `${quantityIncart}` : ""}
+                {quantityIncart ? quantityIncart : null}
               </div>
+}
               <img className=" h-10 w-10" src={CartIcon} alt="" />
             </Link>
           </div>

@@ -29,7 +29,7 @@ export default function ProductItem({ productItem, inCart }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const alreadySaved = savedProducts.some((id) => id == productItem.id);
+    const alreadySaved = savedProducts.some((product) => product.id == productItem.id);
     setSavedProduct(alreadySaved);
   }, [savedProducts]);
 
@@ -47,7 +47,7 @@ export default function ProductItem({ productItem, inCart }) {
 
   const saveProductToProfile = (e) => {
     if (isSignedIn) {
-      dispatch(setSavedProducts(productItem.id));
+      dispatch(setSavedProducts(productItem));
       dispatch(saveUserAsync());
     } else {
       navigate("/signin");

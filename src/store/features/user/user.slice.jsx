@@ -100,11 +100,11 @@ const userSlice = createSlice({
     },
     setSavedProducts: (state, { payload }) => {
       const alreadySaved = state.savedProducts.some(
-        (id) => id == payload
+        (product) => product.id == payload.id
       );
       if (!alreadySaved) {state.savedProducts.push(payload)} else {
         const indexOfProductToRemove = state.savedProducts.findIndex(
-          (id) => id == payload
+          (product) => product.id == payload.id
         );
         state.savedProducts.splice(indexOfProductToRemove, 1);
       };
@@ -119,7 +119,11 @@ const userSlice = createSlice({
     },
     incrementQuantity: (state, { payload }) => {
       const item = state.cart.find((item) => item.id === payload.id);
-      item.quantity++;
+      if(!item) {
+        state.cart.push({...payload, quantity: 1}) 
+      } else {
+        item.quantity++;
+      }
     },
     decrementQuantity: (state, { payload }) => {
       const item = state.cart.find((item) => item.id === payload.id);
