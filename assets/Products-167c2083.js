@@ -1,0 +1,1 @@
+import{u as t,s as e,a as n,F as u,j as o,S as i}from"./index-9fc3b492.js";import{P as d}from"./ProductList-1b90bfcf.js";function P({productData:l}){const r=t(e),c=t(s=>s.products.loading),a=t(s=>s.products.isSuccess);return n(u,{children:[c&&o(i,{}),a&&o(d,{inCart:!1,products:r})]})}export{P};

@@ -1,0 +1,1 @@
+import{j as r,G as o}from"./index-9fc3b492.js";import{P as e}from"./Products-167c2083.js";import"./ProductList-1b90bfcf.js";function a(){return r(o.Provider,{value:"women",children:r(e,{})})}export{a as default};
