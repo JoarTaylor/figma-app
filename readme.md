@@ -1,4 +1,4 @@
-https://github.com/JoarTaylor/figma-app
-https://joartaylor.github.io/figma-app/
+live at: https://figma-shop.web.app/
+repo: https://github.com/JoarTaylor/figma-app
 
-made By: Joar Taylor @ Chas Academy 2022-03
+made by: Joar Taylor @Chas Academy 2022-03
