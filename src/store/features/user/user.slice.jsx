@@ -127,11 +127,14 @@ const userSlice = createSlice({
     },
     decrementQuantity: (state, { payload }) => {
       const item = state.cart.find((item) => item.id === payload.id);
-      if (item.quantity === 0) {
-        item.quantity = 0;
+      const index= state.cart.find((item) => item.id === payload.id);
+      
+      if (item.quantity === 1) {
+        state.cart.splice(index, 1)
       } else {
         item.quantity--;
       }
+      
     },
     deleteFromCart: (state, { payload }) => {
       console.log(payload.id);

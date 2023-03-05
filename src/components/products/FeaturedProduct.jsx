@@ -49,6 +49,7 @@ export default function FeaturedProduct() {
   };
 
   const handleDecrementQuantity = () => {
+    if(quantity == 0) return;
     dispatch(decrementQuantity(featuredProduct));
   };
 
