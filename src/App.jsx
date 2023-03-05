@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { shopData } from "./assets/products";
 import { addProductsToFirebase } from "./firebase";
 import { lazy, Suspense } from "react";
-import Spinner from "./components/utils/Spinner";
+import Spinner from './components/spinner/spinner.component'
 import { getUserAsync, getUserAuthIdAsync } from "./store/features/user/user.slice";
 import { selectIsSignedIn } from "./store/features/user/user.selector";
 
@@ -37,11 +37,11 @@ function App() {
     <div className=" flex w-full flex-col items-center justify-center font-display">
       <div className="flex sm:w-[1110px] flex-col items-center justify-center">
         <BrowserRouter>
-          <Suspense fallback={Spinner}>
+          <Suspense fallback={<Spinner/>}>
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
-                <Route path="/collections" element={<Collections />} />
+                <Route path="/collections/" element={<Collections />} />
                 <Route path="/men" element={<Men />} />
                 <Route path="/women" element={<Women />} />
                 <Route path="/about" element={<About />} />

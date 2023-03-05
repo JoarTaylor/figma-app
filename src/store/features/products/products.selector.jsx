@@ -6,4 +6,3 @@ export const selectAllProducts = createSelector([productsSlice], (products) =>
   products.products
 );
 
-export const selectFeaturedProduct = createSelector([productsSlice], (products) => products.featuredProduct);

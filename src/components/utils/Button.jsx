@@ -4,7 +4,7 @@ export default function Button({callback, children, disabled}) {
   return (
     <button
           onClick={callback}
-          className="rounded bg-green-400 p-2 text-white hover:bg-green-600 w-20 text-center"
+          className=" p-4 bg-teal-900 rounded-lg text-white font-bold mt-5"
         >{children}
         </button>
   )

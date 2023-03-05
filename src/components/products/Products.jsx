@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectAllProducts } from "../../store/features/products/products.selector";
-import Spinner from "../utils/Spinner";
 import ProductList from "./ProductList";
+import Spinner from "../spinner/spinner.component";
 
 export default function Products({ productData }) {
 

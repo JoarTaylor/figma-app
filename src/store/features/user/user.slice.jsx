@@ -123,8 +123,8 @@ const userSlice = createSlice({
     },
     decrementQuantity: (state, { payload }) => {
       const item = state.cart.find((item) => item.id === payload.id);
-      if (item.quantity === 1) {
-        item.quantity = 1;
+      if (item.quantity === 0) {
+        item.quantity = 0;
       } else {
         item.quantity--;
       }

@@ -24,8 +24,8 @@ export default function Layout() {
 
   return (
     <>
-      <nav className="box-border  hidden w-full items-center justify-around sm:flex">
-        <div className="w-full items-center justify-between sm:flex">
+      <nav className="box-border  hidden w-full items-center sm:flex border-b-[1px] border-b-[#E4E9F2]">
+        <div className="w-full items-center sm:flex gap-[33px]">
           <Link className="pb-2" to="/">
             <img className="" src={SneakerIcon} alt="" />
           </Link>
@@ -46,20 +46,20 @@ export default function Layout() {
           </Link>
         </div>
 
-        <div className="flex items-center sm:ml-[89.5px]">
+        <div className="flex items-center">
           <div className=" sm:mr-[22.18px]">
-            <Link to="/cart">
-              <div className=" relative top-2 left-3 rounded-full bg-[#FF7E1B] text-center text-[10px] font-extrabold text-white ">
+            <Link className="relative flex items-center" to="/cart">
+              <div className=" absolute left-[50%] translate-y-[-90%] translate-x-[-10%] rounded-full bg-[#FF7E1B] text-center text-[10px] py-0.5 px-3 font-extrabold text-white ">
                 {quantityIncart ? `${quantityIncart}` : ""}
               </div>
-              <img className="" src={CartIcon} alt="" />
+              <img className=" h-10 w-10" src={CartIcon} alt="" />
             </Link>
           </div>
-          <div className="pb-3 ">
+          <div className="ml-[31px] ">
             {isSignedIn ? (
               <Link to="/dashboard">
                 <img
-                  className=" h-10 rounded-full object-scale-down"
+                  className=" h-10 object-scale-down"
                   src={profileImageSrc}
                   alt=""
                 />
