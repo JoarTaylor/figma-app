@@ -15,7 +15,6 @@ import ProductList from "../products/ProductList";
 export default function Dashboard() {
   const dispatch = useDispatch();
   const userEmail = useSelector(selectUserEmail);
-  const userId = useSelector(selectUserId);
   const userName = useSelector(selectUserName);
   const navigate = useNavigate();
   const isSignedIn = useSelector(selectIsSignedIn)
@@ -32,7 +31,7 @@ export default function Dashboard() {
       <h1>{userName}</h1>
       <h2>{userEmail}</h2>
       <Button callback={handleSignOut}>Sign Out</Button>
-      <h1>Your saved products</h1>
+      <h1 className="text-[28px]">Your saved products</h1>
       <ProductList products={savedProducts}></ProductList>
     </>
   );
